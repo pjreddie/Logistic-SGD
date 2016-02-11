@@ -56,7 +56,9 @@ The training should run for some number of `epochs` performing stochastic gradie
 
 [https://en.wikipedia.org/wiki/Stochastic_gradient_descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
 
-This means you will randomly select a point from the dataset and run the model on that data point. Then you will calculate the error for that point and adjust your model weights based on the gradient of that error. This is different than batch gradient descent where you look at all of the data points before updating. SGD converges faster but can also be less stable because you have a noisy estimate of the gradient instead of the true gradient. In practice it is often much better to use SGD than full batch gradient descent.
+This means you will randomly select a point from the dataset and run the model on that data point. Then you will calculate the error for that point and adjust your model weights based on the gradient of that error. An epoch refers to a full pass over the dataset. In practice it is easier (and more statistically valid) to sample randomly with replacement. Thus an epoch just means examining `N` data points where `N` is the number of points in your training data. 
+
+This is different than batch gradient descent where you look at all of the data points before updating. SGD converges faster but can also be less stable because you have a noisy estimate of the gradient instead of the true gradient. In practice it is often much better to use SGD than full batch gradient descent.
 
 When you see a new data point, your prediction will be:
 
