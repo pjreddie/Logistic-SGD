@@ -1,6 +1,6 @@
 # Logistic Regression using SGD [100 points]#
 
-In this assignment you will be predicting income from census data using logistic regression.
+In this assignment you will be predicting income from census data using logistic regression. Specifically, you will predict the probability that a person earns more than $50k per year.
 
 [https://en.wikipedia.org/wiki/Logistic_regression](https://en.wikipedia.org/wiki/Logistic_regression)
 
@@ -41,6 +41,8 @@ First fill in the `dot` function to take the dot product of two vectors:
 
 Now that you can calculate the dot product, predicting new data points should be easy! Fill in the `predict` function to run your model on a new data point. Take a look at `test.py` to see what the format for data points is.
 
+Prediction should be straightforward, to predict new points you simply multiply your model's weights by the corresponding features, sum up the result, and pass it through the logistic function. This should be easy with your dot product and logistic functions.
+
 
 ### Accuracy [10 points]###
 
@@ -54,7 +56,7 @@ The training should run for some number of `epochs` performing stochastic gradie
 
 [https://en.wikipedia.org/wiki/Stochastic_gradient_descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
 
-This means you will randomly select a point from the dataset and run the model on that data point. Then you will calculate the error for that point and adjust your model weights based on the gradient of that error.
+This means you will randomly select a point from the dataset and run the model on that data point. Then you will calculate the error for that point and adjust your model weights based on the gradient of that error. This is different than batch gradient descent where you look at all of the data points before updating. SGD converges faster but can also be less stable because you have a noisy estimate of the gradient instead of the true gradient. In practice it is often much better to use SGD than full batch gradient descent.
 
 When you run `python test.py` it will tell you your current accuracy on the training and validation set. By default these are the same dataset! To get a more accurate evaluation you can modify `data.py` to use different training and validation sets by splitting your data.
 
