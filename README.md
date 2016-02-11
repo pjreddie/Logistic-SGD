@@ -58,6 +58,27 @@ The training should run for some number of `epochs` performing stochastic gradie
 
 This means you will randomly select a point from the dataset and run the model on that data point. Then you will calculate the error for that point and adjust your model weights based on the gradient of that error. This is different than batch gradient descent where you look at all of the data points before updating. SGD converges faster but can also be less stable because you have a noisy estimate of the gradient instead of the true gradient. In practice it is often much better to use SGD than full batch gradient descent.
 
+When you see a new data point, your prediction will be:
+
+    Prediction = P(income > 50k | W, x) = logistic(W·x)
+
+Your loss function will be:
+
+    Loss = (Prediction - Truth)^2 + Lambda * || W ||
+
+There are two components to the loss:
+
+- the squared error from `(Prediction - Truth)^2`
+- the loss from regularization, `Lambda * || W ||`
+
+By minimizing this loss, the model learns to make correct predictions and also use small weights to avoid overfitting.
+
+To adjust the model you have to calculate the gradient of the loss at a given point. The gradient will come from two sources, the error and the regularization.
+
+While this minimizing this loss looks different than maximizing the conditional log likelihood, the gradient is actually the same, just with opposite sign. Thus you can either descend the gradient of this loss function or ascend the gradient of the conditional log likelihood and you will be performing the same updates. If you want, you can derive why this is the case by taking the partial derivative of the above loss function with respect to a single weight in the model. Use the update rule from class to adjust the model, but remember, since we are doing SGD you only look at one point before updating the model:
+
+![update](http://pjreddie.com/media/files/update.png)
+
 When you run `python test.py` it will tell you your current accuracy on the training and validation set. By default these are the same dataset! To get a more accurate evaluation you can modify `data.py` to use different training and validation sets by splitting your data.
 
 ### Extract Better Features [20 points]###
