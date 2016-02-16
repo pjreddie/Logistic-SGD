@@ -100,7 +100,7 @@ Your final model will be trained on the full training data and run on test data 
 
 Submit your modified `sgd.py` file to the class dropbox here:
 
-[https://catalyst.uw.edu/collectit/assignment/farhadi/37186/149544](https://catalyst.uw.edu/collectit/assignment/farhadi/37186/149544)
+[https://catalyst.uw.edu/collectit/assignment/farhadi/37186/150095](https://catalyst.uw.edu/collectit/assignment/farhadi/37186/150095)
 
 
 
